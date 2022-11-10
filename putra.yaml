@@ -1,0 +1,75 @@
+---
+proxy-providers:
+  Akrab:
+    type: file
+    path: "./proxy_provider/akrab.yaml"
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+proxy-groups:
+- name: Akrab
+  type: url-test
+  strategy: consistent-hashing
+  disable-udp: false
+  use:
+  - Akrab
+  url: http://www.gstatic.com/generate_204
+  interval: '300'
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  listen: 127.0.0.1:7874
+  fake-ip-filter:
+  - "+.*"
+  default-nameserver:
+  - 8.8.8.8
+  - 8.8.4.4
+  - 192.168.8.1
+  - 10.0.124.193
+  - 192.168.9.1
+  - 114.114.114.114
+  - 119.29.29.29
+  nameserver:
+  - 192.168.8.1
+  - 192.168.9.1
+  - dhcp://"eth1"
+  - dhcp://"wwan0"
+  - 114.114.114.114
+  - 119.29.29.29
+  - https://doh.pub/dns-query
+  - https://dns.alidns.com/dns-query
+redir-port: 7892
+tproxy-port: 7895
+port: 7890
+socks-port: 7891
+mixed-port: 7893
+mode: rule
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: putra
+bind-address: "*"
+external-ui: "/usr/share/openclash/dashboard"
+ipv6: false
+auto-route: true
+profile:
+  store-selected: true
+  store-fake-ip: true
+rules:
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+- RULE-SET,Direct,DIRECT
+- RULE-SET,Reject,REJECT
+- MATCH,GLOBAL
+rule-providers:
+  Direct:
+    type: file
+    behavior: classical
+    path: "./rule_provider/direct.yaml"
+  Reject:
+    type: file
+    behavior: classical
+    path: "./rule_provider/reject.yaml"
+unified-delay: true
