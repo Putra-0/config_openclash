@@ -1,1 +1,1 @@
-# config_openclash
+# config_openclash cocok untuk akrab. zerotier aman
