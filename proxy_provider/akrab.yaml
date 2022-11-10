@@ -1,0 +1,42 @@
+proxies:
+- name: vless_grpc
+  type: vless
+  server: 
+  port: 443
+  uuid:
+  udp: true
+  skip-cert-verify: true
+  tls: true
+  servername:
+  network: grpc
+  grpc-opts:
+    grpc-service-name:
+- name: vmess_ws
+  type: vmess
+  server: 
+  port: 
+  uuid: 
+  alterId: 0
+  cipher: auto
+  udp: true
+  skip-cert-verify: true
+  tls: true
+  servername: 
+  network: ws
+  ws-opts:
+    path: "/vmess/"
+    headers:
+      Host: 
+- name: globalssh_trojan_grpc
+  type: trojan
+  server: 
+  port: 443
+  password: 
+  udp: true
+  sni: 
+  alpn:
+  - h2
+  skip-cert-verify: true
+  network: grpc
+  grpc-opts:
+    grpc-service-name: 
