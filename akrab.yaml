@@ -1,0 +1,55 @@
+proxies:
+- name: viper-globalssh_vless_grpc_tls
+  type: vless
+  server: 104.26.4.10
+  port: 443
+  uuid: 88f7f099-b33f-418b-9ee5-adeafb1f258f
+  udp: true
+  skip-cert-verify: true
+  tls: true
+  servername: vless-amp-id01.globalssh.xyz
+  network: grpc
+  grpc-opts:
+    grpc-service-name: vless-grpc-viper-globalssh
+- name: prem-putra(amp)
+  type: vmess
+  server: 104.26.4.10
+  port: 443
+  uuid: 5489831c-639c-4d43-97ca-200fff24adad
+  alterId: 0
+  cipher: auto
+  udp: true
+  skip-cert-verify: true
+  tls: true
+  servername: amp.inetfree.my.id
+  network: ws
+  ws-opts:
+    path: "/vmess/"
+    headers:
+      Host: amp.inetfree.my.id
+- name: Gaszz-globalssh_trojan_grpc
+  type: trojan
+  server: 104.26.4.10
+  port: 443
+  password: '123456'
+  udp: true
+  sni: trojan-ctb-sg01.globalssh.xyz
+  alpn:
+  - h2
+  skip-cert-verify: true
+  network: grpc
+  grpc-opts:
+    grpc-service-name: trojan-grpc-Gaszz-globalssh
+- name: selnov-globalssh_trojan_grpc
+  type: trojan
+  server: 104.20.75.141
+  port: 443
+  password: freenet
+  udp: true
+  sni: trojan-amp-id01.globalssh.xyz
+  alpn:
+  - h2
+  skip-cert-verify: true
+  network: grpc
+  grpc-opts:
+    grpc-service-name: trojan-grpc-selnov-globalssh
