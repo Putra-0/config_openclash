@@ -1,1 +1,1 @@
-# config_openclash cocok untuk akrab. zerotier aman
+# config_openclash cocok untuk akrab, serba edu dll. zerotier aman jaya
