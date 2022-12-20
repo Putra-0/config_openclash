@@ -1,0 +1,4 @@
+ # Zerotier
+  - DOMAIN,my.zerotier.com
+  - DOMAIN-SUFFIX,zerotier.com
+  - DST-PORT,9993
