@@ -62,6 +62,7 @@ rules:
 - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
 - RULE-SET,Direct,DIRECT
 - RULE-SET,Reject,REJECT
+- RULE-SET,Zerotier,Akrab
 - MATCH,GLOBAL
 rule-providers:
   Direct:
@@ -72,4 +73,8 @@ rule-providers:
     type: file
     behavior: classical
     path: "./rule_provider/reject.yaml"
+  Zerotier:
+    type: file
+    behavior: classical
+    path: "./rule_provider/zerotier.yaml"
 unified-delay: true
