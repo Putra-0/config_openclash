@@ -1,2 +1,2 @@
 # config_openclash minimalis 
-``sett minimalis``
+``default rule direct wa``
