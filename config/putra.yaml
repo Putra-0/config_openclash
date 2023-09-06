@@ -1,6 +1,6 @@
 ---
 proxy-providers:
-  Akrab:
+  GLOBALSSH:
     type: file
     path: "./proxy_provider/akrab.yaml"
     health-check:
@@ -8,12 +8,12 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       interval: 300
 proxy-groups:
-- name: Akrab
+- name: GLOBALSSH
   type: url-test
   strategy: consistent-hashing
   disable-udp: false
   use:
-  - Akrab
+  - GLOBALSSH
   url: http://www.gstatic.com/generate_204
   interval: '300'
 dns:
